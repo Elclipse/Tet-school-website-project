@@ -109,6 +109,7 @@ html {
     background: rgba(0,0,0,0.85);
 }
 
+/* Tạo ô nội dung */
 .noi_dung_chinh{
     margin-top: 80px; /* để không bị thanh nav che */
     width: 95%;
@@ -177,6 +178,7 @@ header p {
     font-size: 18px;
 }
 
+/* Thành VIên */
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -184,6 +186,7 @@ header p {
     padding: 30px;
     max-width: 100%;
 }
+
 .team-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);   /* 6 cột */
@@ -256,6 +259,7 @@ footer {
     100% { top: 110%; opacity: 0; }
 }
 
+/* Nền trang chủ phụ */
 .bg-trangchu-2{
     height:100vh;
     background-image: url("img/test.png");
@@ -264,6 +268,7 @@ footer {
     background-repeat: no-repeat;
 }
 
+/* Nội dung + ảnh */
 .noi_dung_hang{
     display:flex;
     justify-content: space-between;
