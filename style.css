@@ -1,7 +1,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
-
+    background-color: #dc392f;
 }
 
 * {
@@ -131,4 +131,33 @@ html {
     font-size: 18px;
     color: #444;
     line-height: 1.6;
+}
+
+/* Màu cho từng ô nội dung */
+.noi_dung_chinh:nth-of-type(3){
+    background: #feeedf
+}
+
+.noi_dung_chinh:nth-of-type(4){
+    background: #feeedf
+}
+
+.noi_dung_chinh:nth-of-type(5){
+    background: #feeedf
+}
+
+.noi_dung_chinh:nth-of-type(6){
+    background: #feeedf
+}
+
+.noi_dung_chinh:nth-of-type(7){
+    background: #feeedf
+}
+
+.noi_dung_chinh:nth-of-type(8){
+    background: #feeedf
+}
+
+.noi_dung_chinh:nth-of-type(9){
+    background: #feeedf
 }
