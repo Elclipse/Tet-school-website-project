@@ -81,13 +81,14 @@ html {
 
 /* Nền trang chủ phụ */
 .bg-trangchu-2{
-    height:100vh;
+    height: 100vh;
     background-image: url("img/background_phu.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    backdrop-filter: blur(8px);
+
     position: relative;
+    overflow: hidden;
     z-index: 2;
 }
 
@@ -95,10 +96,104 @@ html {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);   /* lớp mờ sáng */
-    backdrop-filter: blur(12px);
-    z-index: 2;
+
+    background: inherit;          /* lấy lại ảnh nền */
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(12px);           /* làm mờ ảnh */
+    transform: scale(1.1);        /* tránh lộ viền */
+
+    z-index: 0;
 }
+
+.bg-trangchu-2::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
+.bg-trangchu-2 > *{
+    position: relative;
+    z-index: 2;   /* nằm trên lớp mờ */
+}
+
+.bg2-layout{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    padding:100px 120px;
+}
+
+/* TIÊU ĐỀ Ở GIỮA */
+.bg2-center{
+    grid-column:1 / 4;
+    grid-row:1;
+    display:flex;
+    justify-content:center;
+}
+
+.bg2-title{
+    text-align:center;
+    color:#ffd36b;
+    font-family:"TDPhuDu",sans-serif;
+}
+
+/* CỘT TRÁI */
+.bg2-left{
+    grid-column:1;
+    grid-row:2 / 4;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* CỘT PHẢI */
+.bg2-right{
+    grid-column:3;
+    grid-row:2 / 4;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* ẢNH + CHỮ */
+.bg2-imgbox{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+.bg2-imgbox img{
+    width:420px;
+    border-radius:15px;
+}
+
+.bg2-imgbox p{
+    color:#fce6c2;
+    font-size:20px;
+    text-align:center;    
+    font-family:"TDPhuDu",sans-serif;
+}
+
+/* VIDEO */
+.bg2-right video{
+    width:420px;
+    border-radius:15px;
+}
+
+/* QR */
+.bg2-qr{
+    width:220px;
+}
+
 
 /* Tạo hiệu ứng hoa rơi */
 .flower {
@@ -192,26 +287,74 @@ html {
 /* Nội dung + ảnh */
 .noi_dung_hang{
     display:flex;
-    justify-content: space-between;
     align-items: center;
     gap:40px;
 }
 
 
 .chu_noi_dung{
-    max-width:500px;
-    text-align:left;
+    flex: 1;              /* cho chữ chiếm hết phần trống */
+    min-width: 0;        /* tránh tràn flex */
+    font-family: "TDPhudu", sans-serif;
 }
+
 
 .anh_noi_dung{
     width:320px;
     height:220px;
-    object-fit:cover;
+    position: relative;    
     border-radius:15px;
+    flex-shrink: 0;
 }
+
+.cum_anh{
+    position: relative;
+    width: 420px;
+    height: 300px;
+    flex-shrink: 0; /* không cho bị ép nhỏ trong flex */
+}
+
+.cum_anh .anh_noi_dung{
+    position: absolute;
+    width: 280px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    transition: 0.35s ease;
+    cursor: pointer;
+}
+
+/* Ảnh dưới */
+.cum_anh .anh1{
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Ảnh trên */
+.cum_anh .anh2{
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+/* Hiệu ứng nổi khi hover */
+.cum_anh img{
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.cum_anh img:hover{
+    transform: scale(1.08) translateY(-10px);
+    z-index: 10; /* nổi lên trên ảnh còn lại */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
 
 header {
     padding: 40px 20px;
+    font-family: "TDPhudu", sans-serif;
 }
 
 header h1 {
@@ -279,6 +422,6 @@ body {
 footer {
     padding: 20px;
     font-size: 14px;
+    font-family: "TDPhudu", sans-serif;
     color: #000000;
 }
-
