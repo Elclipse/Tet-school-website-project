@@ -24,6 +24,7 @@ html {
     display: flex;
     align-items: center;
 }
+
 /* Hiệu ứng khi di chuột vào các mục */
 .thanh_dieu_huong a:hover {
     text-decoration: underline;
