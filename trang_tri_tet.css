@@ -17,12 +17,12 @@ html {
     background: #bf2038;
     padding: 10px;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    width: 100%;
     display: flex;
     align-items: center;
+    z-index: 1000;
 }
 
 /* Hiệu ứng khi di chuột vào các mục */
@@ -31,15 +31,15 @@ html {
 }
 
 .nut_home {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     vertical-align: middle;
 }
 
 /* Căn giữa các mục + khoảng cách */
 .muc_dieu_huong {
-    position: relative;
-    flex: 1;
+    flex: 1;                  /* 🔥 BẮT BUỘC */
+    position: relative;       /* 🔥 BẮT BUỘC */
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -48,13 +48,45 @@ html {
 .muc_dieu_huong a {
     color: #f0d280;
     text-decoration: none;
-    margin-left: 15px;
-    font-size: 16px;
+    padding: 6px 0;
+}
+
+/* Indicator */
+.indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 38px;
+    padding: 0 22px;
+    background: #fce6c2;
+    color: #0052f6;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 2;
+    transition: left 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+/* Hover giống nút GO */
+.indicator.hover {
+    background: rgba(253, 98, 98, 0.85);
+    color: #ffe75c;
 }
 
 /* Hiệu ứng đổi màu mục khi di chuột vào*/
 .muc_dieu_huong a:hover {
     color: #fce6c2;
+}
+
+.muc_dieu_huong a.active {
+    opacity: 0;
 }
 
 /* Background cho trang chủ chính*/
