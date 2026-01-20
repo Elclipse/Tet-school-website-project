@@ -12,7 +12,16 @@ html {
     box-sizing: border-box;
 }
 
-/* Tạo thanh điều hướng */
+/* 
+
+Khung trang web
+
+    Tạo thanh điều hướng
+    Tạo nút home
+    Căn giữa các mục
+        Hiệu ứng khi di chuột vào các mục
+    Tạo indicator
+*/
 .thanh_dieu_huong {
     background: #bf2038;
     padding: 10px;
@@ -25,7 +34,6 @@ html {
     z-index: 1000;
 }
 
-/* Hiệu ứng khi di chuột vào các mục */
 .thanh_dieu_huong a:hover {
     text-decoration: underline;
 }
@@ -36,10 +44,9 @@ html {
     vertical-align: middle;
 }
 
-/* Căn giữa các mục + khoảng cách */
 .muc_dieu_huong {
-    flex: 1;                  /* 🔥 BẮT BUỘC */
-    position: relative;       /* 🔥 BẮT BUỘC */
+    flex: 1;                  
+    position: relative;       
     display: flex;
     justify-content: center;
     gap: 30px;
